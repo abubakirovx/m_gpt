@@ -1,0 +1,16 @@
+model_id: Qwen/Qwen2.5-1.5B-Instruct
+dataset_id: HuggingFaceH4/ultrachat_200k
+dataset_split: train_sft
+max_samples: 7000
+seed: 42
+output_dir: outputs/qwen25-15b-ultrachat
+max_seq_length: 512
+lora_r: 8
+lora_alpha: 16
+lora_dropout: 0.05
+batch_size: 1
+gradient_accumulation_steps: 8
+epochs: 1
+learning_rate: 0.0001
+logging_steps: 10
+save_steps: 200
