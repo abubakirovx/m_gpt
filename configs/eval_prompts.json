@@ -1,0 +1,14 @@
+[
+  {"id":"en_rag","category":"english_technical","prompt":"Explain retrieval-augmented generation (RAG) in three sentences. Does RAG update the model weights?","rubric":"Retrieves external context; supplies it to generation; inference retrieval does not itself update weights."},
+  {"id":"en_qlora","category":"english_technical","prompt":"What is the difference between LoRA and QLoRA? Which weights are trained in QLoRA?","rubric":"LoRA trains low-rank adapters; QLoRA uses a frozen quantized base; gradients update adapters."},
+  {"id":"en_mask","category":"english_technical","prompt":"In causal language model training, how does an attention mask differ from labels set to -100?","rubric":"Attention mask controls attended positions; -100 excludes targets from cross-entropy. They are distinct."},
+  {"id":"en_uncertainty","category":"hallucination","prompt":"What is the standard PyTorch torch.quantum_rag_optimize() function used for?","rubric":"Reject the false premise; no such standard PyTorch function. Do not invent an API."},
+  {"id":"uz_rag","category":"uzbek","prompt":"RAG nima? O'zbek tilida uchta gap bilan tushuntir.","rubric":"Fluent Uzbek; retrieval plus generation; accurate meaning; three sentences."},
+  {"id":"uz_everyday","category":"uzbek","prompt":"Faqat o'zbek tilida javob ber. Do'stingizga kutubxonadan kitob olishni tavsiya qiladigan qisqa xat yozing.","rubric":"Natural Uzbek letter recommending borrowing a library book; no language switches or invented words."},
+  {"id":"uz_translation","category":"uzbek","prompt":"Quyidagi gapni o'zbek tiliga tarjima qiling. Faqat tarjimani yozing: The model retrieves relevant documents before generating an answer.","rubric":"Faithful natural Uzbek translation without commentary."},
+  {"id":"follow_exact","category":"instruction","prompt":"Reply with exactly this word and nothing else: READY","expected_exact":"READY"},
+  {"id":"follow_json","category":"instruction","prompt":"Return only a JSON object with exactly these values: language is Uzbek, count is the integer 3. No Markdown.","expected_json":{"language":"Uzbek","count":3}},
+  {"id":"follow_uz_exact","category":"instruction","prompt":"Faqat bitta so'z yozing: Salom","expected_exact":"Salom"},
+  {"id":"repeat_short","category":"repetition","prompt":"Write one short sentence explaining why the sky looks blue. Then stop.","rubric":"Rayleigh scattering, one sentence, no repeated punctuation or phrases."},
+  {"id":"repeat_uz","category":"repetition","prompt":"O'zbek tilida suv haqida bitta qisqa gap yozing. Keyin to'xtang.","rubric":"One natural Uzbek sentence about water, no repeated punctuation or phrases."}
+]

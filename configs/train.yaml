@@ -1,16 +1,26 @@
-model_id: Qwen/Qwen2.5-1.5B-Instruct
+﻿model_id: Qwen/Qwen2.5-1.5B-Instruct
+revision: 989aa7980e4cf806f80c7fef2b1adb7bc71aa306
 dataset_id: HuggingFaceH4/ultrachat_200k
 dataset_split: train_sft
+eval_split: test_sft
+eval_samples: 64
 max_samples: 7000
 seed: 42
-output_dir: outputs/qwen25-15b-ultrachat
+# New runs only; code refuses any nonempty output directory.
+output_dir: outputs/qwen25-15b-ultrachat-v2
 max_seq_length: 512
+# assistant masks system/user/header tokens; full reproduces the old objective.
+loss_mode: assistant
 lora_r: 8
 lora_alpha: 16
 lora_dropout: 0.05
+target_modules: [q_proj, v_proj]
 batch_size: 1
 gradient_accumulation_steps: 8
 epochs: 1
 learning_rate: 0.0001
+warmup_ratio: 0.03
 logging_steps: 10
 save_steps: 200
+attn_implementation: sdpa
+gpu_memory_gb: 7.0
